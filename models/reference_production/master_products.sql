@@ -6,7 +6,7 @@ with source_products as (
 
 final as (
     select 
-    productid,
+    productid as product_id,
     left(product,charindex('|',product)-1) as product,
     substr(product, charindex('|',product) + 1, length(product)) as subcategory,
     case

@@ -8,7 +8,7 @@ final as (
     select 
         date(orderdate) as order_date,
         date(shippingdate) as shipping_date,
-        productid,
+        productid as product_id,
         zip,
         units,
         revenue,
