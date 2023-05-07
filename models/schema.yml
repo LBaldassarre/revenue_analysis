@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: analytics
+    description: "Database used to feed the analytics dashbords"
+    database: RA_ANALYTICS
+    schema: ANALYTICS
+    tables:
+      - name: sales_data
+      - name: master_products
+      - name: periods
+  
+  - name: reference_stage
+    description: "Database used to store raw reference data"
+    database: RA_REFERENCE
+    schema: STAGE
+    tables:
+      - name: products
+        description: "Master products data"
+  
+  - name: reference_production
+    description: "Database used to store procesed reference data"
+    database: RA_REFERENCE
+    schema: PRODUCTION
+    tables:
+      - name: master_products
+        description: "Master products data"
+  
+  - name: warehouse_production
+    description: "Database used to store procesed factual data"
+    database: RA_REFERENCE
+    schema: STAGE
+    tables:
+      - name: sales_data
+      - name: periods
