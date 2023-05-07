@@ -25,11 +25,19 @@ sources:
     tables:
       - name: master_products
         description: "Master products data"
+
+  - name: warehouse_stage
+    description: "Database used to store raw factual data"
+    database: RA_WAREHOUSE
+    schema: STAGE
+    tables:
+      - name: sales_data
+      - name: periods
   
   - name: warehouse_production
     description: "Database used to store procesed factual data"
-    database: RA_REFERENCE
-    schema: STAGE
+    database: RA_WAREHOUSE
+    schema: PRODUCTION
     tables:
       - name: sales_data
       - name: periods
