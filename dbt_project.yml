@@ -35,3 +35,13 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+      analytics:
+          +tags: a
+      reference_stage:
+          +tags: rs
+      reference_production:
+          +tags: rp
+      warehouse_stage:
+          +tags: ws
+      warehouse_production:
+          +tags: wp
