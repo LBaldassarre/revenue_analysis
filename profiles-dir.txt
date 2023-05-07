@@ -1,0 +1,1 @@
+--profiles-dir C:\Users\lab\AppData\Local\Programs\Python\Python311\Lib\site-packages\dbt
