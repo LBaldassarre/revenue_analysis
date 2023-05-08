@@ -1,0 +1,22 @@
+TRUNCATE TABLE periods;
+
+BEGIN
+  LET starting_date := '01/01/2010';
+  LET period := cast(:starting_date as date);
+  LET counter := 0;
+  LET year_ := '';
+  LET quarter_ := '';
+  LET month_ := '';
+  LET day_ := '';
+  LET period_id_aux := '';
+  WHILE (counter < 365) DO 
+    year_ := to_varchar(year(dateadd(day, counter, :period)));
+    quarter_ := to_varchar(quarter(dateadd(day, counter, :period)));
+    month_ := to_varchar(month(dateadd(day, counter, :period)));
+    day_ := to_varchar(day(dateadd(day, counter, :period)));
+    period_id_aux := (date_from_parts(:year_, :month_, :day_));
+    insert into periods (period_id, year, quarter, month, day) values (:period_id_aux, :year_, :quarter_, :month_, :day_);
+    counter := counter + 1;
+  END WHILE;
+  RETURN 0;
+END;
